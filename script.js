@@ -23,7 +23,7 @@ formulario.onsubmit = (envia) => {
 
 
 
-const divBody = document.querySelector('.divBody')
+const divBody = document.getElementById('divBody')
 //const divBienvenida = document.querySelector('.divBienvenida')
 
 const listaProductos = async () => {
@@ -83,45 +83,57 @@ const agregar = async (id) => {
         buscarEnCarrito.cantidad++
     }
     console.log(carrito)
-      
-}  
+
+}
 
 
-    const quitar = (id) => {
-        const buscarEnCarrito = carrito.find((prod) => prod.id === id)
+const quitar = (id) => {
+    const buscarEnCarrito = carrito.find((prod) => prod.id === id)
 
-        if (!buscarEnCarrito) {
-            advertenciaUno()
+    if (!buscarEnCarrito) {
+        advertenciaUno()
+    } else {
+        if (buscarEnCarrito.cantidad === 1) {
+            carrito = carrito.filter((q) => q.id !== id)
         } else {
-            if (buscarEnCarrito.cantidad === 1) {
-                carrito = carrito.filter((q) => q.id !== id)
-            } else {
-                buscarEnCarrito.cantidad--
-                console.log(carrito)
-            }
-            advertenciaDos()
-
+            buscarEnCarrito.cantidad--
+            console.log(carrito)
         }
-        console.log(carrito)
+        advertenciaDos()
 
     }
-    
+    console.log(carrito)
 
-    
+}
+
+
+
 const advertenciaDos = () => { alert("hola") }
 const advertenciaUno = () => { alert("chau") }
 
+const compra = document.getElementById('confirmaCarrito')
+compra.onclick = () => {
 
 
+    let totalCompra = 0
+    carrito.forEach(e => {
+        totalCompra += e.cantidad * e.price
 
-// Swal.fire(`<table><thead><tr>
-// <th scope="col">Producto</th>
-// <th scope="col">Cantidad</th>
-// <th scope="col">Total</th>
-// </tr></thead>
-// <tbody><tr>
-// <td>25</td>
-// <td>3</td>
-// <td>50</td>
-// </tr></tbody></table>`) 
 
+        Swal.fire({
+            html: `<table><thead><tr>
+        <th scope="col">Producto</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Total</th>
+        </tr></thead>
+        <tbody><tr>
+        <td>${e.title}</td>
+        <td>${e.cantidad}</td>
+        <td>${totalCompra}</td>
+        </tr></tbody></table>`
+        })
+
+    })
+
+
+}
