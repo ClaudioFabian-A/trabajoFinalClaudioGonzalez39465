@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+.img {
+    width: 25vw;
+    height: auto;
+}
+.botonera{
+
+}
+.mov{
+
+    display: grid;
+    justify-items: center;
+   
+  }
+    
+
+.divBody {
+    /* display: flex;
+    flex-direction: row ;
+    justify-content: center;
+     */
+    gap: 12rem;
+    padding-top: 12rem;
+    width: 80%;
+    display: grid;
+    justify-items: end;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+}
+
+.bienVenida {
+
+    /* background-color: rgb(251, 0, 255); */
+    width: 33vw;
+    height: 40vh;
+    border: solid black 2px;
+
+
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+
+
+
+}
