@@ -39,8 +39,8 @@ const cardProductos = async () => {
     productos.forEach((e) => {
         const { id, title, price, category, image } = e
         divBody.innerHTML += `
-        <div class="bienVenida">
-        <img src=${image} class = "img">
+        <div class=" movie with-border espejo ">
+        <img src=${image} class = "img movie-poster">
         <div class = "texto">
         <p class = "title">${title}</p>
         <p class = "price">${price}</p>
@@ -51,6 +51,7 @@ const cardProductos = async () => {
         <button id = ${id} class = "btnCancela" onclick="quitar(${id})">Quitar</button>        
         
         </div>
+       
         `
     });
 
