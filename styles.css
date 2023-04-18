@@ -5,8 +5,33 @@
 
 }
 
+p,
+h2 {
+    /* width: 100vw;  */
+    color: #fcfaf8;
+    font-family: 'Times New Roman', Times, serif;
+    font-kerning: auto;
+    font-size: 2rem;
+    /* margin-top: 20vh; */
+
+
+
+}
+
 .botonera {
-    background-color: aqua;
+    border-color: red;
+    border-width: 2px;
+    background-color: #050505 !important;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    /* button { */
+    /* background-color: aqua; */
+    /* color: #fcfaf8 !important;
+        border-radius: 25% 10%;
+        border-style: solid;
+        border-color: red;
+        border-width: 2px; */
+    /* } */
 
 }
 
@@ -16,8 +41,7 @@
 .divBody {
 
     display: grid;
-    /* justify-items: center; */
-    /* align-content: space-between; */
+
 
 }
 
@@ -58,35 +82,40 @@
         background-position: 0 0;
     }
 }
+
 .mov1 {
-    display: grid;   
+    display: grid;
     justify-items: center;
-    
+
 }
 
 
 
 .mov {
     display: grid;
-    /* display: inline-grid; */
-    /* justify-items: center; */
-    /* justify-content: space-evenly; */
-    /* justify-content: space-between; */
+
     justify-content: space-around;
-    /* justify-content: space-between; */
-    /* justify-content: start; */
+
 }
+
+.mov2 {
+    
+    position: sticky;
+    bottom: 20px;
+    left: 20px;
+
+}
+
 
 .movies {
     gap: 12rem;
     padding-top: 12rem;
     width: 100%;
     display: grid;
-    
-    /* justify-items:end;
-     */
-     justify-content: space-between;
-    
+
+
+    justify-content: space-between;
+
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
@@ -94,7 +123,7 @@
     width: 100%;
     height: auto;
     border-radius: 5px;
-    
+
 }
 
 .movie {
@@ -136,4 +165,21 @@
     transition-duration: 3s;
     transition-delay: 1s;
     filter: contrast(120%);
+}
+
+.input1 {
+    border-color: red;
+    border-width: 2px;
+    background-color: #050505 !important;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+
+    background-color: #c9b2ad;
+    color: #fcfaf8 !important;
+    border-radius: 25% 10%;
+    border-style: solid;
+    border-color: red;
+    border-width: 2px;
+
+
 }

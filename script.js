@@ -47,8 +47,8 @@ const cardProductos = async () => {
         <p class = "category">${category}</p>
         </div>
         <div class = "botonera">
-        <button id = ${id} class = "btnCompra" onclick="agregar(${id})">Comprar</button>
-        <button id = ${id} class = "btnCancela" onclick="quitar(${id})">Quitar</button>        
+        <button id = ${id} class = "btnCompra input1" onclick="agregar(${id})">Comprar</button>
+        <button id = ${id} class = "btnCancela input1" onclick="quitar(${id})">Quitar</button>        
         
         </div>
        
@@ -65,11 +65,12 @@ const listaProductosId = async (id) => {
     //console.log(productJSON)
     return listaJSON
 }
-
 const carrito = []
+
 
 const agregar = async (id) => {
     const agregarC = await listaProductosId(id)
+
     const buscarEnCarrito = carrito.find((a) => a.id === agregarC.id)
     if (!buscarEnCarrito) {
         carrito.push({
@@ -78,11 +79,17 @@ const agregar = async (id) => {
             price: agregarC.price,
             category: agregarC.category,
             cantidad: 1,
+            // advertenciaTres()
+
+
         })
+
 
     } else {
         buscarEnCarrito.cantidad++
+
     }
+    advertenciaTres()
     console.log(carrito)
 
 }
@@ -92,7 +99,7 @@ const quitar = (id) => {
     const buscarEnCarrito = carrito.find((prod) => prod.id === id)
 
     if (!buscarEnCarrito) {
-        advertenciaUno()
+        advertenciaDos()
     } else {
         if (buscarEnCarrito.cantidad === 1) {
             carrito = carrito.filter((q) => q.id !== id)
@@ -100,17 +107,16 @@ const quitar = (id) => {
             buscarEnCarrito.cantidad--
             console.log(carrito)
         }
-        advertenciaDos()
+        advertenciaUno()
+
 
     }
     console.log(carrito)
 
+
+
+
 }
-
-
-
-const advertenciaDos = () => { alert("hola") }
-const advertenciaUno = () => { alert("chau") }
 
 const compra = document.getElementById('confirmaCarrito')
 compra.onclick = () => {
@@ -131,10 +137,55 @@ compra.onclick = () => {
         <td>${e.title}</td>
         <td>${e.cantidad}</td>
         <td>${totalCompra}</td>
-        </tr></tbody></table>`
+        </tr></tbody></table>`,
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            background: '#fff url(/images/trees.png)',
+            backdrop: `
+    rgba(0,0,123,0.4)
+    url("/images/nyan-cat.gif")
+    left top
+    no-repeat
+  `
+
         })
 
     })
 
 
 }
+const advertenciaTres = () => {
+    Toastify({
+        text: "Producto agregado.",
+        className: "info",
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
+
+}
+const advertenciaDos = () => {
+    Toastify({
+        text: "No posee este articulo en su carrito.",
+        className: "info",
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
+
+}
+
+const advertenciaUno = () => {
+    Toastify({
+        text: "Articulo eliminado.",
+        className: "info",
+        style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
+
+}
+
+
+
